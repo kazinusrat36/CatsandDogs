@@ -1,6 +1,8 @@
 package com.example.catsanddogs
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -14,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.catsanddogs.ui.theme.focusedTextFieldText
 import com.example.catsanddogs.ui.theme.textFieldContainer
@@ -44,6 +47,35 @@ fun NormalTextField(modifier: Modifier = Modifier,
         )
     )
     
+}
+
+@Composable
+fun SmallTextField(
+    modifier: Modifier = Modifier,
+    name: String
+) {
+    var text by remember { mutableStateOf("") }
+
+    Column {
+        Text(
+            text = name,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Left,
+            fontFamily = FontFamily.Monospace
+        )
+        TextField(
+            modifier = Modifier.width(150.dp),
+            value = text,
+            onValueChange = { text = it },
+            colors = TextFieldDefaults.colors(
+                unfocusedPlaceholderColor = MaterialTheme.colorScheme.unfocusedTextFieldText,
+                focusedPlaceholderColor = MaterialTheme.colorScheme.focusedTextFieldText,
+                unfocusedContainerColor = MaterialTheme.colorScheme.textFieldContainer,
+                focusedContainerColor = MaterialTheme.colorScheme.textFieldContainer
+            )
+        )
+    }
 }
 
 //@Preview(showBackground = true, showSystemUi = true)

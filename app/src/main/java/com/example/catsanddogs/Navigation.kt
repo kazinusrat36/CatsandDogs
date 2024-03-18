@@ -57,7 +57,7 @@ fun Navigation() {
             RegistrationOption(navController = navController)
         }
         composable(route = Screens.AboutUsScreen.route){
-            AboutUsScreen(navController = navController)
+            AboutUsScreen()
         }
         composable(route = Screens.HomeScreen.route){
             HomeScreen(navController = navController)
@@ -73,6 +73,9 @@ fun Navigation() {
         }
         composable(route = Screens.CureScreen.route){
             CureScreen(navController = navController)
+        }
+        composable(route = Screens.PatientFormScreen.route){
+            PatientFormScreen()
         }
         composable(route = Screens.VetListScreen.route){
             VetListScreen(imageId,names,degrees, navController)
@@ -92,6 +95,7 @@ fun Navigation() {
                 degrees = degrees,
                 work = work,
                 contact = contact,
+                navController = navController,
                 itemIndex = index.arguments?.getInt("index")
             )
         }
