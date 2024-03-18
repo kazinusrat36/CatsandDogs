@@ -1,7 +1,6 @@
 package com.example.catsanddogs
 
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -66,7 +65,7 @@ fun VetListScreen(
     degrees: Array<String>,
     navController: NavController,
     modifier: Modifier = Modifier
-){
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -136,7 +135,6 @@ fun VetListScreen(
             },
             drawerState = drawerState
         ) {
-
             Scaffold(
                 modifier = Modifier
                     .fillMaxSize()
@@ -198,7 +196,7 @@ fun ColumnItem(
     degrees: Array<String>,
     itemIndex: Int,
     navController: NavController
-){
+) {
     Card(
         modifier
             .padding(10.dp)
@@ -210,12 +208,12 @@ fun ColumnItem(
             containerColor = Color(0xFFFFDBE9)
         ),
         elevation = CardDefaults.cardElevation(10.dp)
-    ){
+    ) {
         Row(
             modifier.fillMaxWidth(),
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.spacedBy(15.dp)
-        ){
+        ) {
             Image(
                 painter = painterResource(id = painter[itemIndex]),
                 contentDescription = title[itemIndex],
@@ -223,9 +221,9 @@ fun ColumnItem(
             )
             Column(
                 modifier.padding(12.dp)
-            ){
+            ) {
                 Text(
-                    text= title[itemIndex],
+                    text = title[itemIndex],
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )

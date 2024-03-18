@@ -63,7 +63,7 @@ fun Navigation() {
             HomeScreen(navController = navController)
         }
         composable(route = Screens.FosterScreen.route){
-            FosterScreen()
+            FosterScreen(navController = navController)
         }
         composable(route = Screens.RegistrationUserScreen.route){
             RegistrationUserScreen(navController = navController)
