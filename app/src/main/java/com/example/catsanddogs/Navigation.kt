@@ -72,7 +72,7 @@ fun Navigation() {
             RegistrationVetScreen(navController = navController)
         }
         composable(route = Screens.CureScreen.route){
-            CureScreen()
+            CureScreen(navController = navController)
         }
         composable(route = Screens.VetListScreen.route){
             VetListScreen(imageId,names,degrees, navController)
