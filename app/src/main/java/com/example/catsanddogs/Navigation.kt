@@ -57,7 +57,7 @@ fun Navigation() {
             RegistrationOption(navController = navController)
         }
         composable(route = Screens.AboutUsScreen.route){
-            AboutUsScreen()
+            AboutUsScreen(navController = navController)
         }
         composable(route = Screens.HomeScreen.route){
             HomeScreen(navController = navController)
