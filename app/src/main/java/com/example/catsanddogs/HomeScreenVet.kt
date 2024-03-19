@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material.icons.automirrored.outlined.ExitToApp
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
@@ -48,20 +46,22 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 
+@Preview(showSystemUi = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreenVet(navController: NavController) {
-//fun HomeScreenVet(){
+//fun HomeScreenVet(navController: NavController) {
+fun HomeScreenVet(){
     Box (
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize().background(Color(0xFFFFDBE9))
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFFFDBE9))
     ) {
         Image(
             modifier = Modifier.fillMaxSize(),
@@ -75,7 +75,9 @@ fun HomeScreenVet(navController: NavController) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = Modifier.fillMaxSize().background(Color(0xFFFFDBE9))
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFFFFDBE9))
             ) {
                 val items = listOf(
                     NavigationBarItems(
@@ -83,12 +85,6 @@ fun HomeScreenVet(navController: NavController) {
                         title = "Home",
                         selectedIcon = Icons.Filled.Home,
                         unselectedIcon = Icons.Outlined.Home
-                    ),
-                    NavigationBarItems(
-                        route = Screens.LoginScreen.route,
-                        title = "Log Out",
-                        selectedIcon = Icons.AutoMirrored.Filled.ExitToApp,
-                        unselectedIcon = Icons.AutoMirrored.Outlined.ExitToApp
                     ),
                     NavigationBarItems(
                         route = Screens.HomeScreen.route,
@@ -191,23 +187,33 @@ fun HomeScreenVet(navController: NavController) {
                                         .clickable {
                                             //navController.navigate(Screens.VetListScreen.route)
                                         }) {
-                                    Text(
-                                        text = "Patients",
-                                        modifier = Modifier.padding(10.dp),
-                                        fontSize = 20.sp,
-                                        textDecoration = TextDecoration.Underline,
-                                        fontFamily = FontFamily.Serif
-                                    )
+                                    Spacer(modifier = Modifier.height(40.dp))
                                     Image(
-                                        painterResource(id = R.drawable.vet),
+                                        painterResource(id = R.drawable.catdogpng),
                                         contentDescription = null,
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .padding(15.dp)
-                                            .background(Color.White)
+                                            .background(Color(0xFFFFDBE9))
 
                                     )
+                                    }
+                                Column (
+                                    verticalArrangement = Arrangement.Center,
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(Color(0xFFFFDBE9))
+                                ){
+                                    Text(
+                                        text = "Thanks for registration! We will reach out to you via mail after your account confirmation.",
+                                        modifier = Modifier.padding(10.dp),
+                                        textAlign = TextAlign.Center,
+                                        fontSize = 20.sp,
+                                        fontFamily = FontFamily.Serif
+                                    )
                                 }
+
                             }
                         }
                     }
